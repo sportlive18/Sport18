@@ -1,4 +1,4 @@
-const DATA_URL = 'https://raw.githubusercontent.com/allrounder-live4.pages.dev/id.json';
+const DATA_URL = 'https://allrounder-live4.pages.dev/id.json';
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('search');
 
@@ -9,17 +9,19 @@ async function fetchChannels() {
         const response = await fetch(DATA_URL);
         const rawContent = await response.text();
         
-        // Sometimes GitHub raw files might have non-JSON wrappers if processed by certain tools
-        // We try to find the start and end of the JSON array
-        const start = rawContent.indexOf('[');
-        const end = rawContent.lastIndexOf(']') + 1;
+        // Parse JSON - handle possible wrapper content
+        const start = rawContent.indexOf('{');
+        const end = rawContent.lastIndexOf('}') + 1;
         
         if (start === -1 || end === 0) {
-            throw new Error('Valid JSON array not found in the source.');
+            throw new Error('Valid JSON not found in the source.');
         }
         
         const jsonContent = rawContent.substring(start, end);
-        channels = JSON.parse(jsonContent);
+        const data = JSON.parse(jsonContent);
+        
+        // The API returns { iframes: [...] }
+        channels = data.iframes || data || [];
         
         renderChannels(channels);
     } catch (error) {
@@ -44,18 +46,27 @@ function renderChannels(data) {
 
     data.forEach(channel => {
         const card = document.createElement('a');
-        card.href = channel.link;
+        card.href = channel.iframeSrc || channel.link || '#';
         card.target = '_blank';
         card.className = 'card';
         
-        // Group teams as tags
-        const tagsHtml = channel.teams ? channel.teams.map(team => `<span class="tag">${team}</span>`).join('') : '';
+        // Use channel name for a generated logo placeholder
+        const displayName = channel.name || channel.id || 'Channel';
+        const logoUrl = channel.logo || `https://via.placeholder.com/150/1e293b/0ea5e9?text=${encodeURIComponent(displayName)}`;
+        
+        // Group teams as tags (if available), otherwise show channel id as tag
+        let tagsHtml = '';
+        if (channel.teams) {
+            tagsHtml = channel.teams.map(team => `<span class="tag">${team}</span>`).join('');
+        } else if (channel.id) {
+            tagsHtml = `<span class="tag">${channel.id}</span>`;
+        }
         
         card.innerHTML = `
             <div class="logo-container">
-                <img src="${channel.logo}" alt="${channel.name}" class="logo" loading="lazy" onerror="this.src='https://via.placeholder.com/150/1e293b/0ea5e9?text=${channel.name}'">
+                <img src="${logoUrl}" alt="${displayName}" class="logo" loading="lazy" onerror="this.src='https://via.placeholder.com/150/1e293b/0ea5e9?text=${encodeURIComponent(displayName)}'">
             </div>
-            <div class="name">${channel.name}</div>
+            <div class="name">${displayName}</div>
             <div class="tags-container">${tagsHtml}</div>
         `;
         
@@ -66,7 +77,8 @@ function renderChannels(data) {
 searchInput.addEventListener('input', (e) => {
     const term = e.target.value.toLowerCase();
     const filtered = channels.filter(channel => 
-        channel.name.toLowerCase().includes(term) || 
+        (channel.name && channel.name.toLowerCase().includes(term)) || 
+        (channel.id && channel.id.toLowerCase().includes(term)) ||
         (channel.teams && channel.teams.some(team => team.toLowerCase().includes(term)))
     );
     renderChannels(filtered);
