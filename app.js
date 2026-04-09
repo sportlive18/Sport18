@@ -1,4 +1,4 @@
-const DATA_URL = 'https://raw.githubusercontent.com/Shubhamkur/Tv/refs/heads/main/waptv';
+const DATA_URL = 'https://raw.githubusercontent.com/allrounder-live4.pages.dev/id.json';
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('search');
 
