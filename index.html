@@ -13,29 +13,52 @@
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
 
-    <div class="container">
-        <header>
-            <h1>SPORT 18</h1>
-            <p class="subtitle">Premium Live Sports Streaming Hub</p>
-        </header>
+    <div id="grid-view" class="view active">
+        <div class="container">
+            <header>
+                <h1>SPORT 18</h1>
+                <p class="subtitle">Premium Live Sports Streaming Hub</p>
+            </header>
 
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="search" class="search-input" placeholder="Search for channels, teams, or sports...">
-        </div>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search" class="search-input" placeholder="Search for channels, teams, or sports...">
+            </div>
 
-        <div id="grid" class="grid">
-            <!-- Skeleton cards while loading -->
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
-            <div class="card skeleton" style="height: 240px;"></div>
+            <div id="grid" class="grid">
+                <!-- Skeleton cards while loading -->
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+                <div class="card skeleton" style="height: 240px;"></div>
+            </div>
         </div>
     </div>
+
+    <div id="player-view" class="view page-view" style="display: none;">
+        <div class="player-container">
+            <div class="player-nav">
+                <button id="back-btn" class="back-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>Back to Grid</span>
+                </button>
+                <div id="player-title" class="player-title">Loading...</div>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe id="main-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="watermark">Sportlink</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://whatsapp.com/channel/0029VbC2oQsC6ZvmwpR3v73v" target="_blank" class="whatsapp-btn" id="whatsapp-link">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Join WhatsApp</span>
+    </a>
 
     <footer>
         <p>&copy; 2026 Sport 18. All channels are fetched from external sources.</p>

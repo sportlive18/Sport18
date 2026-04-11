@@ -1,66 +1,69 @@
-const DATA_URL = 'https://allrounder-live4.pages.dev/id.json';
+const DATA_URL = 'https://allrounderid2.pages.dev/id.json';
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('search');
+const gridView = document.getElementById('grid-view');
+const playerView = document.getElementById('player-view');
+const playerTitle = document.getElementById('player-title');
+const mainPlayer = document.getElementById('main-player');
+const backBtn = document.getElementById('back-btn');
 
 let channels = [];
+
+// Helper to update the view based on URL
+async function handleRouting() {
+    const path = window.location.pathname.substring(1); // Get path without leading slash
+    
+    if (path && path !== 'index.html') {
+        // Try to find channel by ID
+        if (channels.length === 0) {
+            await fetchChannels();
+        }
+        
+        const channel = channels.find(c => c.id === path);
+        if (channel) {
+            openPlayer(channel, false); // false = don't push state again
+        } else {
+            showGrid();
+        }
+    } else {
+        showGrid();
+    }
+}
 
 async function fetchChannels() {
     try {
         const response = await fetch(DATA_URL);
         const rawContent = await response.text();
         
-        // Parse JSON - handle possible wrapper content
         const start = rawContent.indexOf('{');
         const end = rawContent.lastIndexOf('}') + 1;
         
-        if (start === -1 || end === 0) {
-            throw new Error('Valid JSON not found in the source.');
-        }
+        if (start === -1 || end === 0) throw new Error('Invalid JSON');
         
-        const jsonContent = rawContent.substring(start, end);
-        const data = JSON.parse(jsonContent);
-        
-        // The API returns { iframes: [...] }
+        const data = JSON.parse(rawContent.substring(start, end));
         channels = data.iframes || data || [];
         
         renderChannels(channels);
     } catch (error) {
-        console.error('Error fetching channels:', error);
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
-            <i class="fa-solid fa-circle-exclamation" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;"></i>
-            <h3>Unable to load channels</h3>
-            <p style="color: var(--text-secondary);">Please try again later or check your connection.</p>
-        </div>`;
+        console.error('Error:', error);
+        grid.innerHTML = `<div class="error-msg">Unable to load channels</div>`;
     }
 }
 
 function renderChannels(data) {
     grid.innerHTML = '';
     
-    if (data.length === 0) {
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
-            <p style="color: var(--text-secondary);">No channels found matching your search.</p>
-        </div>`;
-        return;
-    }
-
     data.forEach(channel => {
-        const card = document.createElement('a');
-        card.href = channel.iframeSrc || channel.link || '#';
-        card.target = '_blank';
+        const card = document.createElement('div');
         card.className = 'card';
+        card.style.cursor = 'pointer';
         
-        // Use channel name for a generated logo placeholder
         const displayName = channel.name || channel.id || 'Channel';
         const logoUrl = channel.logo || `https://via.placeholder.com/150/1e293b/0ea5e9?text=${encodeURIComponent(displayName)}`;
         
-        // Group teams as tags (if available), otherwise show channel id as tag
-        let tagsHtml = '';
-        if (channel.teams) {
-            tagsHtml = channel.teams.map(team => `<span class="tag">${team}</span>`).join('');
-        } else if (channel.id) {
-            tagsHtml = `<span class="tag">${channel.id}</span>`;
-        }
+        let tagsHtml = channel.teams 
+            ? channel.teams.map(team => `<span class="tag">${team}</span>`).join('')
+            : `<span class="tag">${channel.id}</span>`;
         
         card.innerHTML = `
             <div class="logo-container">
@@ -70,19 +73,53 @@ function renderChannels(data) {
             <div class="tags-container">${tagsHtml}</div>
         `;
         
+        card.onclick = () => openPlayer(channel);
         grid.appendChild(card);
     });
 }
 
+function openPlayer(channel, pushState = true) {
+    playerTitle.textContent = channel.name || channel.id;
+    mainPlayer.src = channel.iframeSrc || channel.link;
+    
+    gridView.style.display = 'none';
+    playerView.style.display = 'block';
+    playerView.classList.add('active');
+    
+    if (pushState) {
+        window.history.pushState({ id: channel.id }, '', `/${channel.id}`);
+    }
+    
+    window.scrollTo(0, 0);
+}
+
+function showGrid() {
+    mainPlayer.src = ''; // Stop playback
+    playerView.style.display = 'none';
+    gridView.style.display = 'block';
+    gridView.classList.add('active');
+    
+    if (window.location.pathname !== '/') {
+        window.history.pushState({}, '', '/');
+    }
+}
+
+// Event Listeners
 searchInput.addEventListener('input', (e) => {
     const term = e.target.value.toLowerCase();
     const filtered = channels.filter(channel => 
         (channel.name && channel.name.toLowerCase().includes(term)) || 
-        (channel.id && channel.id.toLowerCase().includes(term)) ||
-        (channel.teams && channel.teams.some(team => team.toLowerCase().includes(term)))
+        (channel.id && channel.id.toLowerCase().includes(term))
     );
     renderChannels(filtered);
 });
 
-// Initial fetch
+backBtn.addEventListener('click', () => showGrid());
+
+window.addEventListener('popstate', () => {
+    handleRouting();
+});
+
+// Initialization
+handleRouting();
 fetchChannels();
