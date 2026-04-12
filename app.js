@@ -1,11 +1,6 @@
 const DATA_URL = 'https://allrounderid2.pages.dev/id.json';
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('search');
-const gridView = document.getElementById('grid-view');
-const playerView = document.getElementById('player-view');
-const playerTitle = document.getElementById('player-title');
-const mainPlayer = document.getElementById('main-player');
-const backBtn = document.getElementById('back-btn');
 
 let channels = [];
 
@@ -13,7 +8,7 @@ let channels = [];
 async function handleRouting() {
     const path = window.location.pathname.substring(1); // Get path without leading slash
     
-    if (path && path !== 'index.html') {
+    if (path && path !== 'index.html' && path !== 'player.html') {
         // Try to find channel by ID
         if (channels.length === 0) {
             await fetchChannels();
@@ -21,12 +16,9 @@ async function handleRouting() {
         
         const channel = channels.find(c => c.id === path);
         if (channel) {
-            openPlayer(channel, false); // false = don't push state again
-        } else {
-            showGrid();
+            // Redirect to the new player page
+            window.location.replace(`player.html?id=${channel.id}`);
         }
-    } else {
-        showGrid();
     }
 }
 
@@ -78,30 +70,9 @@ function renderChannels(data) {
     });
 }
 
-function openPlayer(channel, pushState = true) {
-    playerTitle.textContent = channel.name || channel.id;
-    mainPlayer.src = channel.iframeSrc || channel.link;
-    
-    gridView.style.display = 'none';
-    playerView.style.display = 'block';
-    playerView.classList.add('active');
-    
-    if (pushState) {
-        window.history.pushState({ id: channel.id }, '', `/${channel.id}`);
-    }
-    
-    window.scrollTo(0, 0);
-}
-
-function showGrid() {
-    mainPlayer.src = ''; // Stop playback
-    playerView.style.display = 'none';
-    gridView.style.display = 'block';
-    gridView.classList.add('active');
-    
-    if (window.location.pathname !== '/') {
-        window.history.pushState({}, '', '/');
-    }
+function openPlayer(channel) {
+    // Navigate to the standalone player page
+    window.location.href = `player.html?id=${channel.id}`;
 }
 
 // Event Listeners
@@ -113,8 +84,6 @@ searchInput.addEventListener('input', (e) => {
     );
     renderChannels(filtered);
 });
-
-backBtn.addEventListener('click', () => showGrid());
 
 window.addEventListener('popstate', () => {
     handleRouting();
