@@ -324,7 +324,7 @@
   }
   #fullscreen-overlay.landscape #fs-inner {
     width: 100vh;
-    height: 56.25vh;
+    height: 100vw;
     position: relative;
     transform: rotate(90deg);
     transform-origin: center center;
@@ -333,8 +333,8 @@
   #fs-inner iframe {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     border: none;
   }
 
@@ -745,6 +745,17 @@ document.addEventListener("DOMContentLoaded", function () {
       fsOverlay.classList.add("landscape");
       fsRotate.classList.add("rotated");
     } else {
+      fsOverlay.classList.remove("landscape");
+      fsOverlay.classList.add("portrait");
+      fsRotate.classList.remove("rotated");
+    }
+  });
+
+  // Handle physical rotation to prevent double-rotation
+  window.addEventListener("orientationchange", function() {
+    if (window.orientation === 90 || window.orientation === -90) {
+      // Physically rotated to landscape, reset simulated rotation
+      isLandscape = false;
       fsOverlay.classList.remove("landscape");
       fsOverlay.classList.add("portrait");
       fsRotate.classList.remove("rotated");
