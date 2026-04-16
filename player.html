@@ -20,7 +20,6 @@
     overflow-x: hidden;
   }
 
-  /* HEADER */
   .header {
     width: 100%;
     background: rgba(10,10,10,0.98);
@@ -33,45 +32,25 @@
     height: 70px;
   }
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .logo-container { display: flex; align-items: center; gap: 6px; }
   .back-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    margin-right: 12px;
-    transition: all 0.2s ease;
+    border-radius: 8px; color: #fff; text-decoration: none;
+    margin-right: 12px; transition: all 0.2s ease;
   }
-  .back-link:hover {
-    background: #e8000d;
-    border-color: #e8000d;
-  }
-  .back-link svg {
-    width: 18px; height: 18px;
-    stroke: currentColor; stroke-width: 2.5; fill: none;
-  }
+  .back-link:hover { background: #e8000d; border-color: #e8000d; }
+  .back-link svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.5; fill: none; }
   .logo-sport { font-size: 30px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
   .logo-link  { font-size: 30px; font-weight: 900; color: #e8000d; text-transform: uppercase; letter-spacing: 1px; }
 
   .header-right { display: flex; align-items: center; gap: 20px; }
-
   .live-badge {
-    background: #e8000d;
-    padding: 7px 18px;
-    border-radius: 4px;
+    background: #e8000d; padding: 7px 18px; border-radius: 4px;
     font-size: 13px; font-weight: 700; letter-spacing: 2px;
-    animation: glow 2s infinite;
-    display: flex; align-items: center; gap: 7px;
+    animation: glow 2s infinite; display: flex; align-items: center; gap: 7px;
   }
   .live-dot-header { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
 
@@ -84,7 +63,6 @@
     50%    { opacity:.4; transform:scale(1.4); }
   }
 
-  /* SUB HEADER */
   .sub-header {
     width: 100%;
     background: linear-gradient(90deg, #e8000d, #b30000);
@@ -96,28 +74,18 @@
   .sub-divider { width: 1px; height: 16px; background: rgba(255,255,255,.4); }
   .sub-desc { font-size: 13px; color: rgba(255,255,255,.85); letter-spacing: 1px; }
 
-  /* MAIN CONTAINER */
   .container {
-    width: 100%;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100%; max-width: 900px;
+    margin: 30px auto; padding: 0 20px;
+    display: flex; flex-direction: column; gap: 20px;
   }
 
-  /* VIDEO SECTION */
   .video-section {
-    background: rgba(255,255,255,.04);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,.8);
-    border: 1px solid rgba(232,0,13,.25);
+    background: rgba(255,255,255,.04); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.8); border: 1px solid rgba(232,0,13,.25);
   }
   .video-header {
-    background: rgba(0,0,0,.6);
-    padding: 16px 28px;
+    background: rgba(0,0,0,.6); padding: 16px 28px;
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid rgba(232,0,13,.2);
   }
@@ -126,53 +94,31 @@
   .video-subtitle { font-size: 13px; color: rgba(255,255,255,.55); letter-spacing: 1px; }
   .live-indicator {
     display: flex; align-items: center; gap: 9px;
-    background: rgba(232,0,13,.15);
-    padding: 8px 18px; border-radius: 6px;
+    background: rgba(232,0,13,.15); padding: 8px 18px; border-radius: 6px;
     border: 1px solid rgba(232,0,13,.5);
   }
   .live-dot { width: 10px; height: 10px; background: #e8000d; border-radius: 50%; animation: pulse 1.5s infinite; box-shadow: 0 0 8px #e8000d; }
   .live-text { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #e8000d; }
 
-  /* PLAYER */
   .player-shell {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    background: #000;
+    position: relative; width: 100%; padding-bottom: 56.25%; background: #000;
   }
-  .player-shell iframe,
   .player-shell #player-container {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    border: none; display: block;
-    z-index: 1;
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; z-index: 1;
   }
   .player-shell #player-container iframe {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    border: none;
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
   }
 
-  /* WATERMARK */
   .sportlink-watermark {
-    position: absolute;
-    bottom: 70px; right: 20px;
-    z-index: 4;
-    pointer-events: none;
-    opacity: 0.4;
+    position: absolute; bottom: 70px; right: 20px; z-index: 4; pointer-events: none; opacity: 0.4;
   }
-  .watermark-text {
-    font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    display: flex; align-items: center; gap: 3px;
-  }
+  .watermark-text { font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 3px; }
   .watermark-sport { color: #fff; }
   .watermark-link  { color: #e8000d; }
 
-  /* CONTROLS */
   .controls {
-    padding: 18px 28px;
-    background: rgba(0,0,0,.5);
+    padding: 18px 28px; background: rgba(0,0,0,.5);
     display: flex; gap: 12px; align-items: center;
     border-top: 1px solid rgba(255,255,255,.06);
   }
@@ -184,167 +130,83 @@
   .spacer { flex: 1; }
   .stream-info { font-size:12px; color:rgba(255,255,255,.4); letter-spacing:1px; }
 
-  /* ERROR */
   .error-box {
-    display: none;
-    background: rgba(232,0,13,0.1);
-    border: 1px solid rgba(232,0,13,0.35);
-    color: #fca5a5;
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: center;
+    display: none; background: rgba(232,0,13,0.1); border: 1px solid rgba(232,0,13,0.35);
+    color: #fca5a5; border-radius: 10px; padding: 14px 18px;
+    font-size: 14px; font-weight: 500; text-align: center;
   }
 
-  /* CARDS */
   .card {
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(232,0,13,.2);
-    border-radius: 14px;
-    padding: 20px;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(232,0,13,.2);
+    border-radius: 14px; padding: 20px;
   }
-  .card-title {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(255,255,255,.4);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 14px;
-  }
+  .card-title { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
 
-  /* DIVIDER */
-  .divider {
-    display: flex; align-items: center; gap: 10px;
-    color: rgba(255,255,255,.3);
-    font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
-  }
-  .divider::before, .divider::after {
-    content: ''; flex: 1; height: 1px;
-    background: rgba(255,255,255,.08);
-  }
+  .divider { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.3); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.08); }
 
-  /* COMMUNITY BTN (WhatsApp) */
   .community-btn {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(232,0,13,.25);
-    border-radius: 10px;
-    padding: 14px 18px;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.25s ease;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(232,0,13,.25);
+    border-radius: 10px; padding: 14px 18px; color: #fff; text-decoration: none;
+    cursor: pointer; transition: all 0.25s ease;
   }
-  .community-btn:hover {
-    background: rgba(232,0,13,.1);
-    border-color: rgba(232,0,13,.5);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(232,0,13,.15);
-  }
+  .community-btn:hover { background: rgba(232,0,13,.1); border-color: rgba(232,0,13,.5); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,0,13,.15); }
   .community-btn .left { display: flex; align-items: center; gap: 12px; }
-  .community-btn .icon-wrap {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: rgba(232,0,13,.15);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+  .community-btn .icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: rgba(232,0,13,.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .community-btn svg { width: 22px; height: 22px; fill: #e8000d; }
   .community-btn .label { font-size: 15px; font-weight: 700; }
   .community-btn .sublabel { font-size: 12px; color: rgba(255,255,255,.4); font-weight: 400; margin-top: 1px; }
-  .community-btn .arrow {
-    width: 28px; height: 28px; border-radius: 8px;
-    background: rgba(232,0,13,.12);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+  .community-btn .arrow { width: 28px; height: 28px; border-radius: 8px; background: rgba(232,0,13,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .community-btn .arrow svg { width: 14px; height: 14px; fill: none; stroke: #e8000d; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* SHARE BTN */
   .share-btn {
-    width: 100%;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: #e8000d;
-    border: none; border-radius: 8px;
-    padding: 15px;
-    color: #fff; font-family: 'Arial', sans-serif;
-    font-size: 14px; font-weight: 700;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 20px rgba(232,0,13,.4);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #e8000d; border: none; border-radius: 8px; padding: 15px;
+    color: #fff; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(232,0,13,.4);
+    letter-spacing: 1px; text-transform: uppercase;
   }
   .share-btn:hover { background: #ff1a24; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,0,13,.55); }
   .share-btn:active { transform: translateY(0); }
-
-  .share-note {
-    text-align: center;
-    font-size: 11px;
-    color: rgba(255,255,255,.35);
-    margin-top: 10px;
-    letter-spacing: 1px;
-  }
+  .share-note { text-align: center; font-size: 11px; color: rgba(255,255,255,.35); margin-top: 10px; letter-spacing: 1px; }
 
   /* FULLSCREEN OVERLAY */
   #fullscreen-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 9999;
-    background: #000;
+    display: none; position: fixed; inset: 0; z-index: 9999; background: #000;
   }
   #fullscreen-overlay.active { display: block; }
-  #fullscreen-overlay.portrait {
-    display: flex; align-items: center; justify-content: center;
-  }
-  #fullscreen-overlay.portrait #fs-inner {
-    width: 100vw; height: 56.25vw; max-height: 100vh; position: relative;
-  }
-  #fullscreen-overlay.landscape {
-    display: flex; align-items: center; justify-content: center;
-  }
-  #fullscreen-overlay.landscape #fs-inner {
-    width: 100vh; height: 56.25vh; position: relative;
-    transform: rotate(90deg); transform-origin: center center;
-  }
-  #fs-inner iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
-  }
+  #fullscreen-overlay.portrait { display: flex; align-items: center; justify-content: center; }
+  #fullscreen-overlay.portrait #fs-inner { width: 100vw; height: 56.25vw; max-height: 100vh; position: relative; }
+  #fullscreen-overlay.landscape { display: flex; align-items: center; justify-content: center; }
+  #fullscreen-overlay.landscape #fs-inner { width: 100vh; height: 56.25vh; position: relative; transform: rotate(90deg); transform-origin: center center; }
+  #fs-inner iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
   #fs-close {
     position: fixed; top: 14px; right: 14px; z-index: 10000;
-    width: 38px; height: 38px;
-    background: rgba(232,0,13,.7);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 50%;
+    width: 38px; height: 38px; background: rgba(232,0,13,.7);
+    border: 1px solid rgba(255,255,255,.2); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; cursor: pointer;
   }
   #fs-close svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; fill: none; }
   #fs-rotate {
     position: fixed; bottom: 20px; right: 20px; z-index: 10000;
-    width: 44px; height: 44px;
-    background: rgba(232,0,13,.25); border: 1px solid rgba(232,0,13,.5);
-    border-radius: 12px;
+    width: 44px; height: 44px; background: rgba(232,0,13,.25);
+    border: 1px solid rgba(232,0,13,.5); border-radius: 12px;
     display: flex; align-items: center; justify-content: center; cursor: pointer;
   }
   #fs-rotate svg { width: 20px; height: 20px; fill: #e8000d; transition: transform 0.4s ease; }
   #fs-rotate.rotated svg { transform: rotate(90deg); }
 
-  /* TOAST */
   .toast {
     position: fixed; bottom: 30px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: #1a0a0a; border: 1px solid #e8000d;
-    color: #fca5a5;
-    padding: 10px 20px; border-radius: 30px;
-    font-size: 14px; font-weight: 700; z-index: 200;
-    opacity: 0; transition: all 0.3s ease; white-space: nowrap;
+    background: #1a0a0a; border: 1px solid #e8000d; color: #fca5a5;
+    padding: 10px 20px; border-radius: 30px; font-size: 14px; font-weight: 700;
+    z-index: 200; opacity: 0; transition: all 0.3s ease; white-space: nowrap;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 30px 20px;
-    color: rgba(255,255,255,.25);
-    font-size: 12px; letter-spacing: 1px;
-  }
+  .footer { text-align: center; padding: 30px 20px; color: rgba(255,255,255,.25); font-size: 12px; letter-spacing: 1px; }
   .footer span { color: #e8000d; }
 
   @media(max-width:768px){
@@ -394,7 +256,7 @@
   </div>
 </header>
 
-<!-- SUB HEADER (dynamic, set by JS) -->
+<!-- SUB HEADER -->
 <div class="sub-header" id="subHeader">
   <span class="sub-icon">📺</span>
   <span class="sub-title" id="streamTitle">Live Stream</span>
@@ -420,7 +282,6 @@
 
     <div class="player-shell" id="playerShell">
       <div id="player-container"></div>
-
       <div class="sportlink-watermark">
         <div class="watermark-text">
           <span class="watermark-sport">Sport</span><span class="watermark-link">Link</span>
@@ -467,9 +328,7 @@
   <!-- SHARE CARD -->
   <div class="card">
     <div class="card-title">Share This Stream</div>
-    <button class="share-btn" id="shareBtn">
-      ↑ &nbsp;Copy Stream Link
-    </button>
+    <button class="share-btn" id="shareBtn">↑ &nbsp;Copy Stream Link</button>
     <div class="share-note">Best viewed in Chrome browser</div>
   </div>
 
@@ -480,12 +339,19 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ─── PLAYER LOAD ───
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const playerContainer = document.getElementById("player-container");
   const errorBox = document.getElementById("errorBox");
   let currentSrc = "";
+
+  function loadIframe(container) {
+    container.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
+  }
+
+  function clearIframe(container) {
+    container.innerHTML = "";
+  }
 
   if (!id) {
     errorBox.style.display = "block";
@@ -500,9 +366,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const match = data.iframes.find(item => item.id === id);
         if (match && match.iframeSrc) {
           currentSrc = match.iframeSrc;
-          playerContainer.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
+          loadIframe(playerContainer);
 
-          // Update titles if name is present
           if (match.name) {
             document.getElementById("streamTitle").textContent = match.name;
             document.getElementById("videoTitleText").textContent = match.name;
@@ -517,9 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ─── RELOAD ───
   document.getElementById("reloadBtn").onclick = function () {
-    if (currentSrc) {
-      playerContainer.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
-    }
+    if (currentSrc) loadIframe(playerContainer);
   };
 
   // ─── FULLSCREEN + ROTATE ───
@@ -532,7 +395,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openFullscreen() {
     if (!currentSrc) return;
-    fsInner.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
+
+    // ✅ FIX: Remove the background iframe so only one stream plays
+    clearIframe(playerContainer);
+
+    loadIframe(fsInner);
     fsOverlay.classList.add("active");
 
     if (window.innerHeight > window.innerWidth) {
@@ -555,9 +422,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closeFullscreen() {
+    // ✅ FIX: Remove fullscreen iframe and restore background player
+    clearIframe(fsInner);
     fsOverlay.classList.remove("active", "portrait", "landscape");
-    fsInner.innerHTML = "";
     document.body.style.overflow = "";
+
+    // Restore main player
+    if (currentSrc) loadIframe(playerContainer);
+
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
     } else if (document.webkitFullscreenElement) {
@@ -567,6 +439,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fsBtn.addEventListener("click", openFullscreen);
   fsClose.addEventListener("click", closeFullscreen);
+
+  // ✅ Also handle browser's native Escape / back button exiting fullscreen
+  document.addEventListener("fullscreenchange", function () {
+    if (!document.fullscreenElement && fsOverlay.classList.contains("active")) {
+      closeFullscreen();
+    }
+  });
+  document.addEventListener("webkitfullscreenchange", function () {
+    if (!document.webkitFullscreenElement && fsOverlay.classList.contains("active")) {
+      closeFullscreen();
+    }
+  });
 
   fsRotate.addEventListener("click", function () {
     isLandscape = !isLandscape;
