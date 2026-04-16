@@ -6,26 +6,13 @@
 <title>SportLink | Player</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0c10;
-    --surface: #111318;
-    --surface2: #181c23;
-    --accent: #3b82f6;
-    --accent2: #60a5fa;
-    --glow: rgba(59,130,246,0.35);
-    --red: #ef4444;
-    --text: #f0f4ff;
-    --muted: #6b7280;
-    --border: rgba(255,255,255,0.07);
-  }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
     min-height: 100vh;
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,521 +20,344 @@
     overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* NAV */
-  .navbar {
-    position: relative;
-    z-index: 10;
+  /* HEADER */
+  .header {
     width: 100%;
-    max-width: 520px;
+    background: rgba(10,10,10,0.98);
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 20px 0;
+    border-bottom: 3px solid #e8000d;
+    box-shadow: 0 4px 30px rgba(232,0,13,0.3);
+    height: 70px;
   }
 
-  .logo-wrap {
+  .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
   }
-
-  /* Back Button */
   .back-link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: #fff;
     text-decoration: none;
+    margin-right: 12px;
     transition: all 0.2s ease;
   }
   .back-link:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    box-shadow: 0 0 12px var(--glow);
+    background: #e8000d;
+    border-color: #e8000d;
   }
   .back-link svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    stroke-width: 2.5;
-    fill: none;
+    width: 18px; height: 18px;
+    stroke: currentColor; stroke-width: 2.5; fill: none;
   }
+  .logo-sport { font-size: 30px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+  .logo-link  { font-size: 30px; font-weight: 900; color: #e8000d; text-transform: uppercase; letter-spacing: 1px; }
 
-  /* SportLink icon/watermark logo */
-  .logo-icon {
-    width: 38px;
-    height: 38px;
-    background: linear-gradient(135deg, var(--accent), #1d4ed8);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 16px rgba(59,130,246,0.4);
-    flex-shrink: 0;
-  }
-  .logo-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    background: linear-gradient(135deg, #fff 30%, var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-  }
-  .logo-sub {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-top: -4px;
-  }
+  .header-right { display: flex; align-items: center; gap: 20px; }
 
   .live-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(239,68,68,0.12);
-    border: 1px solid rgba(239,68,68,0.3);
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #fca5a5;
-    text-transform: uppercase;
+    background: #e8000d;
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    animation: glow 2s infinite;
+    display: flex; align-items: center; gap: 7px;
   }
-  .live-dot {
-    width: 7px; height: 7px;
-    background: var(--red);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--red);
-    animation: pulse-badge 1.5s infinite;
+  .live-dot-header { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+  @keyframes glow {
+    0%,100%{ box-shadow: 0 0 10px rgba(232,0,13,.5); }
+    50%    { box-shadow: 0 0 25px rgba(232,0,13,.9); }
   }
-  @keyframes pulse-badge {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+  @keyframes pulse {
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%    { opacity:.4; transform:scale(1.4); }
   }
+
+  /* SUB HEADER */
+  .sub-header {
+    width: 100%;
+    background: linear-gradient(90deg, #e8000d, #b30000);
+    padding: 10px 40px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .sub-icon { font-size: 20px; }
+  .sub-title { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; }
+  .sub-divider { width: 1px; height: 16px; background: rgba(255,255,255,.4); }
+  .sub-desc { font-size: 13px; color: rgba(255,255,255,.85); letter-spacing: 1px; }
 
   /* MAIN CONTAINER */
   .container {
-    position: relative;
-    z-index: 5;
     width: 100%;
-    max-width: 520px;
-    padding: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
+
+  /* VIDEO SECTION */
+  .video-section {
+    background: rgba(255,255,255,.04);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.8);
+    border: 1px solid rgba(232,0,13,.25);
+  }
+  .video-header {
+    background: rgba(0,0,0,.6);
+    padding: 16px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(232,0,13,.2);
+  }
+  .video-title-group { display: flex; flex-direction: column; gap: 4px; }
+  .video-title { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .video-subtitle { font-size: 13px; color: rgba(255,255,255,.55); letter-spacing: 1px; }
+  .live-indicator {
+    display: flex; align-items: center; gap: 9px;
+    background: rgba(232,0,13,.15);
+    padding: 8px 18px; border-radius: 6px;
+    border: 1px solid rgba(232,0,13,.5);
+  }
+  .live-dot { width: 10px; height: 10px; background: #e8000d; border-radius: 50%; animation: pulse 1.5s infinite; box-shadow: 0 0 8px #e8000d; }
+  .live-text { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #e8000d; }
 
   /* PLAYER */
-  .player-wrap {
+  .player-shell {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
-    border-radius: 16px;
-    overflow: hidden;
+    padding-bottom: 56.25%;
     background: #000;
-    box-shadow:
-      0 0 0 1px var(--border),
-      0 0 40px var(--glow),
-      0 24px 48px rgba(0,0,0,0.6);
   }
-  .player-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    border-radius: 16px;
-    box-shadow: inset 0 0 0 1.5px rgba(59,130,246,0.3);
-    pointer-events: none;
-  }
-  .player-wrap iframe,
-  .player-wrap #player-container {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+  .player-shell iframe,
+  .player-shell #player-container {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: none; display: block;
     z-index: 1;
   }
-
-  /* WATERMARK inside player */
-  .player-watermark {
-    position: absolute;
-    bottom: 14px;
-    right: 14px;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(59,130,246,0.25);
-    border-radius: 8px;
-    padding: 5px 10px;
-    pointer-events: none;
-  }
-  .player-watermark .wm-icon {
-    width: 16px; height: 16px;
-    background: linear-gradient(135deg, var(--accent), #1d4ed8);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .player-watermark .wm-icon svg { width: 10px; height: 10px; }
-  .player-watermark span {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .player-label {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--accent2);
-    text-transform: uppercase;
-  }
-  .player-label span {
-    width: 6px; height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-    animation: pulse-badge 1.5s infinite;
-  }
-
-  /* FULLSCREEN BUTTON */
-  .fullscreen-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 4;
-    width: 34px; height: 34px;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .fullscreen-btn:hover {
-    background: rgba(59,130,246,0.3);
-    border-color: rgba(59,130,246,0.5);
-  }
-  .fullscreen-btn svg {
-    width: 16px; height: 16px;
-    fill: none;
-    stroke: #fff;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: transform 0.3s ease;
-  }
-
-  /* FULLSCREEN OVERLAY */
-  #fullscreen-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #000;
-  }
-  #fullscreen-overlay.active { display: block; }
-
-  /* Portrait mode — normal 16:9 horizontal */
-  #fullscreen-overlay.portrait {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #fullscreen-overlay.portrait #fs-inner {
-    width: 100vw;
-    height: 56.25vw;
-    max-height: 100vh;
-    position: relative;
-  }
-
-  /* Landscape mode — rotated to fill screen */
-  #fullscreen-overlay.landscape {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #fullscreen-overlay.landscape #fs-inner {
-    width: 100vh;
-    height: 56.25vh;
-    position: relative;
-    transform: rotate(90deg);
-    transform-origin: center center;
-  }
-
-  #fs-inner iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  .player-shell #player-container iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
     border: none;
   }
 
-  #fs-close {
-    position: fixed;
-    top: 14px;
-    right: 14px;
-    z-index: 10000;
-    width: 38px; height: 38px;
-    background: rgba(0,0,0,0.7);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  /* WATERMARK */
+  .sportlink-watermark {
+    position: absolute;
+    bottom: 70px; right: 20px;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.4;
   }
-  #fs-close svg {
-    width: 16px; height: 16px;
-    stroke: #fff;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    fill: none;
+  .watermark-text {
+    font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    display: flex; align-items: center; gap: 3px;
   }
+  .watermark-sport { color: #fff; }
+  .watermark-link  { color: #e8000d; }
 
-  #fs-rotate {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10000;
-    width: 44px; height: 44px;
-    background: rgba(59,130,246,0.25);
-    border: 1px solid rgba(59,130,246,0.5);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  /* CONTROLS */
+  .controls {
+    padding: 18px 28px;
+    background: rgba(0,0,0,.5);
+    display: flex; gap: 12px; align-items: center;
+    border-top: 1px solid rgba(255,255,255,.06);
   }
-  #fs-rotate svg {
-    width: 20px; height: 20px;
-    fill: var(--accent2);
-    transition: transform 0.4s ease;
-  }
-  #fs-rotate.rotated svg { transform: rotate(90deg); }
+  .btn { padding:10px 22px; border:none; border-radius:6px; font-size:13px; font-weight:700; cursor:pointer; transition:all .25s; color:#fff; text-transform:uppercase; letter-spacing:1px; }
+  .btn-primary  { background:#e8000d; box-shadow:0 4px 15px rgba(232,0,13,.35); }
+  .btn-primary:hover  { background:#ff1a24; box-shadow:0 6px 20px rgba(232,0,13,.55); transform:translateY(-2px); }
+  .btn-secondary{ background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); }
+  .btn-secondary:hover{ background:rgba(255,255,255,.18); transform:translateY(-2px); }
+  .spacer { flex: 1; }
+  .stream-info { font-size:12px; color:rgba(255,255,255,.4); letter-spacing:1px; }
 
   /* ERROR */
   .error-box {
     display: none;
-    background: rgba(239,68,68,0.12);
-    border: 1px solid rgba(239,68,68,0.35);
+    background: rgba(232,0,13,0.1);
+    border: 1px solid rgba(232,0,13,0.35);
     color: #fca5a5;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 14px 18px;
     font-size: 14px;
     font-weight: 500;
     text-align: center;
   }
 
-  /* DIVIDER */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--muted);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
   /* CARDS */
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 18px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(232,0,13,.2);
+    border-radius: 14px;
+    padding: 20px;
   }
   .card-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,.4);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     margin-bottom: 14px;
   }
 
-  /* TELEGRAM BTN */
+  /* DIVIDER */
+  .divider {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,.3);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(255,255,255,.08);
+  }
+
+  /* COMMUNITY BTN (WhatsApp) */
   .community-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    background: linear-gradient(135deg, #1d2b4a, #162038);
-    border: 1px solid rgba(59,130,246,0.25);
-    border-radius: 14px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(232,0,13,.25);
+    border-radius: 10px;
     padding: 14px 18px;
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
   }
-  .community-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(59,130,246,0.15), transparent);
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .community-btn:hover::before { opacity: 1; }
   .community-btn:hover {
-    border-color: rgba(59,130,246,0.55);
+    background: rgba(232,0,13,.1);
+    border-color: rgba(232,0,13,.5);
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(59,130,246,0.2);
+    box-shadow: 0 8px 24px rgba(232,0,13,.15);
   }
   .community-btn .left { display: flex; align-items: center; gap: 12px; }
   .community-btn .icon-wrap {
-    width: 42px; height: 42px;
-    border-radius: 12px;
-    background: rgba(59,130,246,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(232,0,13,.15);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .community-btn svg { width: 22px; height: 22px; fill: var(--accent2); }
+  .community-btn svg { width: 22px; height: 22px; fill: #e8000d; }
   .community-btn .label { font-size: 15px; font-weight: 700; }
-  .community-btn .sublabel { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 1px; }
+  .community-btn .sublabel { font-size: 12px; color: rgba(255,255,255,.4); font-weight: 400; margin-top: 1px; }
   .community-btn .arrow {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    background: rgba(59,130,246,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(232,0,13,.12);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .community-btn .arrow svg { width: 14px; height: 14px; }
+  .community-btn .arrow svg { width: 14px; height: 14px; fill: none; stroke: #e8000d; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
   /* SHARE BTN */
   .share-btn {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--accent), #1d4ed8);
-    border: none;
-    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #e8000d;
+    border: none; border-radius: 8px;
     padding: 15px;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
+    color: #fff; font-family: 'Arial', sans-serif;
+    font-size: 14px; font-weight: 700;
     cursor: pointer;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 20px rgba(59,130,246,0.35);
-    letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(232,0,13,.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-  .share-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,130,246,0.5); }
+  .share-btn:hover { background: #ff1a24; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,0,13,.55); }
   .share-btn:active { transform: translateY(0); }
-  .share-btn svg { width: 18px; height: 18px; fill: #fff; }
 
   .share-note {
     text-align: center;
     font-size: 11px;
-    color: var(--muted);
+    color: rgba(255,255,255,.35);
     margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-  }
-  .share-note svg { width: 12px; height: 12px; fill: var(--muted); }
-
-  .footer {
-    position: relative;
-    z-index: 5;
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 8px;
+    letter-spacing: 1px;
   }
 
+  /* FULLSCREEN OVERLAY */
+  #fullscreen-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: #000;
+  }
+  #fullscreen-overlay.active { display: block; }
+  #fullscreen-overlay.portrait {
+    display: flex; align-items: center; justify-content: center;
+  }
+  #fullscreen-overlay.portrait #fs-inner {
+    width: 100vw; height: 56.25vw; max-height: 100vh; position: relative;
+  }
+  #fullscreen-overlay.landscape {
+    display: flex; align-items: center; justify-content: center;
+  }
+  #fullscreen-overlay.landscape #fs-inner {
+    width: 100vh; height: 56.25vh; position: relative;
+    transform: rotate(90deg); transform-origin: center center;
+  }
+  #fs-inner iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+  }
+  #fs-close {
+    position: fixed; top: 14px; right: 14px; z-index: 10000;
+    width: 38px; height: 38px;
+    background: rgba(232,0,13,.7);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  #fs-close svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; fill: none; }
+  #fs-rotate {
+    position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+    width: 44px; height: 44px;
+    background: rgba(232,0,13,.25); border: 1px solid rgba(232,0,13,.5);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  #fs-rotate svg { width: 20px; height: 20px; fill: #e8000d; transition: transform 0.4s ease; }
+  #fs-rotate.rotated svg { transform: rotate(90deg); }
+
+  /* TOAST */
   .toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
+    position: fixed; bottom: 30px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: #1a2a1a;
-    border: 1px solid #22c55e;
-    color: #86efac;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 200;
-    opacity: 0;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    background: #1a0a0a; border: 1px solid #e8000d;
+    color: #fca5a5;
+    padding: 10px 20px; border-radius: 30px;
+    font-size: 14px; font-weight: 700; z-index: 200;
+    opacity: 0; transition: all 0.3s ease; white-space: nowrap;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255,255,255,.25);
+    font-size: 12px; letter-spacing: 1px;
+  }
+  .footer span { color: #e8000d; }
+
+  @media(max-width:768px){
+    .header { padding-left: 16px; padding-right: 16px; }
+    .logo-sport, .logo-link { font-size: 22px; }
+    .sub-header { padding-left: 16px; padding-right: 16px; }
+    .sub-desc, .sub-divider { display: none; }
+    .controls { flex-wrap: wrap; padding: 14px 16px; gap: 10px; }
+    .btn { padding: 9px 16px; font-size: 12px; }
+    .stream-info { display: none; }
+    .sportlink-watermark { bottom: 60px; right: 10px; }
+    .watermark-text { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -568,58 +378,62 @@
 <!-- TOAST -->
 <div class="toast" id="toast">✓ Link copied to clipboard</div>
 
-<!-- NAV -->
-<nav class="navbar">
-  <div class="logo-wrap">
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-container">
     <a href="index.html" class="back-link" title="Back to Dashboard">
       <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
     </a>
-    <div class="logo-icon">
-      <!-- Play/signal icon -->
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 3l14 9-14 9V3z" fill="#fff"/>
-        <circle cx="19" cy="5" r="3" fill="#ef4444"/>
-      </svg>
-    </div>
-    <div>
-      <div class="logo">SportLink</div>
-      <div class="logo-sub">HD Streams</div>
+    <span class="logo-sport">Sport</span><span class="logo-link">Link</span>
+  </div>
+  <div class="header-right">
+    <div class="live-badge">
+      <div class="live-dot-header"></div>
+      LIVE
     </div>
   </div>
-  <div class="live-badge">
-    <div class="live-dot"></div>
-    Live
-  </div>
-</nav>
+</header>
+
+<!-- SUB HEADER (dynamic, set by JS) -->
+<div class="sub-header" id="subHeader">
+  <span class="sub-icon">📺</span>
+  <span class="sub-title" id="streamTitle">Live Stream</span>
+  <div class="sub-divider"></div>
+  <span class="sub-desc">Live Sports Streaming</span>
+</div>
 
 <!-- MAIN -->
 <div class="container">
 
   <!-- PLAYER -->
-  <div class="player-wrap" id="playerWrap">
-    <div class="player-label"><span></span> Live Stream</div>
-
-    <!-- Fullscreen button -->
-    <div class="fullscreen-btn" id="fsBtn" title="Fullscreen">
-      <svg viewBox="0 0 24 24">
-        <polyline points="15 3 21 3 21 9"/>
-        <polyline points="9 21 3 21 3 15"/>
-        <line x1="21" y1="3" x2="14" y2="10"/>
-        <line x1="3" y1="21" x2="10" y2="14"/>
-      </svg>
-    </div>
-
-    <!-- Watermark logo -->
-    <div class="player-watermark">
-      <div class="wm-icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M5 3l14 9-14 9V3z" fill="#fff"/>
-        </svg>
+  <div class="video-section">
+    <div class="video-header">
+      <div class="video-title-group">
+        <div class="video-title" id="videoTitleText">Live Stream</div>
+        <div class="video-subtitle">Live Sports · HD Stream</div>
       </div>
-      <span>SportLink</span>
+      <div class="live-indicator">
+        <div class="live-dot"></div>
+        <span class="live-text">LIVE</span>
+      </div>
     </div>
 
-    <div id="player-container"></div>
+    <div class="player-shell" id="playerShell">
+      <div id="player-container"></div>
+
+      <div class="sportlink-watermark">
+        <div class="watermark-text">
+          <span class="watermark-sport">Sport</span><span class="watermark-link">Link</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="fsBtn">⛶ &nbsp;Fullscreen</button>
+      <button class="btn btn-secondary" id="reloadBtn">↺ &nbsp;Reload</button>
+      <div class="spacer"></div>
+      <div class="stream-info">sportlink.live · hd sports</div>
+    </div>
   </div>
 
   <!-- ERROR -->
@@ -629,7 +443,7 @@
 
   <div class="divider">Community</div>
 
-  <!-- Whatsapp CARD -->
+  <!-- WHATSAPP CARD -->
   <div class="card">
     <div class="card-title">Stay Connected</div>
     <a href="https://whatsapp.com/channel/0029VbC2oQsC6ZvmwpR3v73v" class="community-btn" target="_blank">
@@ -638,12 +452,12 @@
           <svg viewBox="0 0 24 24"><path d="M9.04 15.47l-.4 5.65c.57 0 .82-.25 1.13-.55l2.72-2.6 5.64 4.13c1.03.57 1.76.27 2.04-.95l3.7-17.37c.36-1.65-.6-2.3-1.6-1.92L1.66 9.74c-1.58.61-1.55 1.5-.27 1.9l5.58 1.74L19.46 5.6c.58-.36 1.1-.16.67.2"/></svg>
         </div>
         <div>
-          <div class="label">Whatsapp Channel</div>
+          <div class="label">WhatsApp Channel</div>
           <div class="sublabel">Live updates &amp; new stream links</div>
         </div>
       </div>
       <div class="arrow">
-        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       </div>
     </a>
   </div>
@@ -654,18 +468,14 @@
   <div class="card">
     <div class="card-title">Share This Stream</div>
     <button class="share-btn" id="shareBtn">
-      <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      Copy Stream Link
+      ↑ &nbsp;Copy Stream Link
     </button>
-    <div class="share-note">
-      <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-      Best viewed in Chrome browser
-    </div>
+    <div class="share-note">Best viewed in Chrome browser</div>
   </div>
 
 </div>
 
-<div class="footer">© 2025 SportLink · All rights reserved</div>
+<div class="footer">&copy; 2025 <span>SportLink</span> &nbsp;·&nbsp; All rights reserved</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -691,12 +501,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if (match && match.iframeSrc) {
           currentSrc = match.iframeSrc;
           playerContainer.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
+
+          // Update titles if name is present
+          if (match.name) {
+            document.getElementById("streamTitle").textContent = match.name;
+            document.getElementById("videoTitleText").textContent = match.name;
+            document.title = "SportLink | " + match.name;
+          }
         } else {
           errorBox.style.display = "block";
         }
       })
       .catch(() => { errorBox.style.display = "block"; });
   }
+
+  // ─── RELOAD ───
+  document.getElementById("reloadBtn").onclick = function () {
+    if (currentSrc) {
+      playerContainer.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
+    }
+  };
 
   // ─── FULLSCREEN + ROTATE ───
   const fsOverlay = document.getElementById("fullscreen-overlay");
@@ -710,8 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!currentSrc) return;
     fsInner.innerHTML = `<iframe src="${currentSrc}" allow="encrypted-media; autoplay" allowfullscreen></iframe>`;
     fsOverlay.classList.add("active");
-    
-    // Auto-rotate on mobile portrait
+
     if (window.innerHeight > window.innerWidth) {
       isLandscape = true;
       fsOverlay.className = "active landscape";
@@ -724,7 +547,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.style.overflow = "hidden";
 
-    // Try native fullscreen API
     if (fsOverlay.requestFullscreen) {
       fsOverlay.requestFullscreen().catch(() => {});
     } else if (fsOverlay.webkitRequestFullscreen) {
@@ -744,7 +566,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   fsBtn.addEventListener("click", openFullscreen);
-
   fsClose.addEventListener("click", closeFullscreen);
 
   fsRotate.addEventListener("click", function () {
@@ -760,10 +581,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle physical rotation to prevent double-rotation
-  window.addEventListener("orientationchange", function() {
+  window.addEventListener("orientationchange", function () {
     if (window.orientation === 90 || window.orientation === -90) {
-      // Physically rotated to landscape, reset simulated rotation
       isLandscape = false;
       fsOverlay.classList.remove("landscape");
       fsOverlay.classList.add("portrait");
@@ -771,11 +590,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close on ESC
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && fsOverlay.classList.contains("active")) {
-      closeFullscreen();
-    }
+    if (e.key === "Escape" && fsOverlay.classList.contains("active")) closeFullscreen();
   });
 
   // ─── SHARE / COPY ───
