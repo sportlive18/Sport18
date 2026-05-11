@@ -1,4 +1,4 @@
-const DATA_URL = 'https://sportlink18.pages.dev/id.json';
+const DATA_URL = 'https://sportlink10.pages.dev/id.json';
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('search');
 
