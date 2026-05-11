@@ -1,0 +1,238 @@
+{
+  "iframes": [
+    {
+      "id": "willow",
+      "name": "Willow TV",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/willow.html"
+    },
+    {
+      "id": "hotstar",
+      "name": "Disney+ Hotstar",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live2.pages.dev/channel/ptv"
+    },
+    {
+      "id": "star1-english",
+      "name": "Star Sports 1 (English)",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live4.pages.dev/star/star-1"
+    },
+    {
+      "id": "star1-hindi",
+      "name": "Star Sports 1 (Hindi)",
+      "type": "iframe",
+      "iframeSrc": "https://allrounderlive.in/hindi"
+    },
+    {
+      "id": "star3",
+      "name": "Star Sports 3 (English)",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star3.html"
+    },
+    {
+      "id": "kayosport",
+      "name": "Kayo Sport HD",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live2.pages.dev/channel/ptv"
+    },
+    {
+      "id": "criclife",
+      "name": "Criclife",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/criclife.html"
+    },
+    {
+      "id": "willow-cricbuzz",
+      "name": "Willow Cricbuzz",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live7.pages.dev/channel/willow"
+    },
+    {
+      "id": "willow-cricbuzz-2",
+      "name": "Willow Cricbuzz 2",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Willow Cricbuzz.html"
+    },
+    {
+      "id": "sky-cricket",
+      "name": "Sky Cricket",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live.pages.dev/channel/hub5"
+    },
+    {
+      "id": "hub",
+      "name": "Hub Sport",
+      "type": "iframe",
+      "iframeSrc": "https://allrounder-live.pages.dev/channel/hub5"
+    },
+    {
+      "id": "ptv",
+      "name": "PTV",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/ptv.html"
+    },
+    {
+      "id": "fox501",
+      "name": "Fox 501",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Fox501.html"
+    },
+    {
+      "id": "star1-tv-eng",
+      "name": "Star Sports 1 TV (English)",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star1.html"
+    },
+    {
+      "id": "star1-tv-hd-eng",
+      "name": "Star Sports 1 TV HD (English)",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/cbs Sports.html"
+    },
+    {
+      "id": "star1-hindi-hd",
+      "name": "Star Sports 1 Hindi HD",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/hindi.html"
+    },
+    {
+      "id": "star2-hindi-hd",
+      "name": "Star Sports 2 Hindi HD",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star2-Hindi.html"
+    },
+    {
+      "id": "star2-eng-hd",
+      "name": "Star Sports 2 Eng HD",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star2-Eng.html"
+    },
+    {
+      "id": "bein1",
+      "name": "Bein Sports 1",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/beinsport1.html"
+    },
+    {
+      "id": "bein2",
+      "name": "Bein Sports 2",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/beinsport2.html"
+    },
+    {
+      "id": "bein3",
+      "name": "Bein Sports 3",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/beinsport3.html"
+    },
+    {
+      "id": "bein4",
+      "name": "Bein Sports 4",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/beinsport4.html"
+    },
+    {
+      "id": "tnt1",
+      "name": "TNT Sports 1",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Tnt1.html"
+    },
+    {
+      "id": "tnt2",
+      "name": "TNT Sports 2",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Tnt2.html"
+    },
+    {
+      "id": "tnt3",
+      "name": "TNT Sports 3",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Tnt3.html"
+    },
+    {
+      "id": "tnt4",
+      "name": "TNT Sports 4",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Tnt4.html"
+    },
+    {
+      "id": "sony1",
+      "name": "Sony Sport 1",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony1.html"
+    },
+    {
+      "id": "sony2",
+      "name": "Sony Sport 2",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony2.html"
+    },
+    {
+      "id": "sony3",
+      "name": "Sony Sport 3",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony3.html"
+    },
+    {
+      "id": "sony4",
+      "name": "Sony Sport 4",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony4.html"
+    },
+    {
+      "id": "sony5",
+      "name": "Sony Sport 5",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony5.html"
+    },
+    {
+      "id": "ten-cricket",
+      "name": "Ten Cricket",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Ten Cricket.html"
+    },
+    {
+      "id": "fubosport",
+      "name": "Fubo Sport",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/fubosport.html"
+    },
+    {
+      "id": "star-select-1",
+      "name": "Star Sport Select 1",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/StarSportSelect1.html"
+    },
+    {
+      "id": "star-select-2",
+      "name": "Star Sport Select 2",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/StarSportSelect2.html"
+    },
+    {
+      "id": "fancode",
+      "name": "Fancode",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Fancode.html"
+    },
+    {
+      "id": "fancode2",
+      "name": "Fancode 1",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Fancode2.html"
+    },
+    {
+      "id": "tsn",
+      "name": "TSN",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/Tsn.html"
+    },
+    {
+      "id": "premier-sport",
+      "name": "Premier Sport",
+      "type": "iframe",
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/premiersport.html"
+    }
+  ]
+}
