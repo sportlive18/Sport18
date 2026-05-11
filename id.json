@@ -64,13 +64,13 @@
       "id": "hub",
       "name": "Hub Sport",
       "type": "iframe",
-      "iframeSrc": "https://allrounder-live.pages.dev/channel/hub5"
+      "iframeSrc": "https://allrounder-live7.pages.dev/channel/hub5"
     },
     {
       "id": "ptv",
       "name": "PTV",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/ptv.html"
+      "iframeSrc": "https://allrounder-live7.pages.dev/channel/hub5"
     },
     {
       "id": "fox501",
