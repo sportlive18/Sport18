@@ -14,13 +14,13 @@
     },
     {
       "id": "star1-english",
-      "name": "Star Sports 1 (English)",
+      "name": "Star Sports (English)",
       "type": "iframe",
       "iframeSrc": "https://allrounder-live4.pages.dev/star/star-1"
     },
     {
       "id": "star1-hindi",
-      "name": "Star Sports 1 (Hindi)",
+      "name": "Star Sports (Hindi)",
       "type": "iframe",
       "iframeSrc": "https://allrounderlive.in/hindi"
     },
@@ -76,7 +76,7 @@
       "id": "fox501",
       "name": "Fox 501",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Fox501.html"
+      "iframeSrc": "https://pooembed.eu/embed/ipl/2026-05-11/pbks-dc"
     },
     {
       "id": "star1-tv-eng",
@@ -100,13 +100,13 @@
       "id": "star2-hindi-hd",
       "name": "Star Sports 2 Hindi HD",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star2-Hindi.html"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/StarSportsHD2Hin_BTS"
     },
     {
       "id": "star2-eng-hd",
       "name": "Star Sports 2 Eng HD",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star2-Eng.html"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/StarSportsHD2Hin_BTS"
     },
     {
       "id": "bein1",
@@ -160,19 +160,19 @@
       "id": "sony1",
       "name": "Sony Sport 1",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony1.html"
+      "iframeSrc": "https://jio-tv-all.pages.dev/Channel/Sony_Ten_1_HD"
     },
     {
       "id": "sony2",
       "name": "Sony Sport 2",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony2.html"
+      "iframeSrc": "https://jio-tv-all.pages.dev/Channel/Sony_Ten_2_HD"
     },
     {
       "id": "sony3",
       "name": "Sony Sport 3",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony3.html"
+      "iframeSrc": "https://jio-tv-all.pages.dev/Channel/Sony_Ten_3_HD_Hindi"
     },
     {
       "id": "sony4",
@@ -184,7 +184,7 @@
       "id": "sony5",
       "name": "Sony Sport 5",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Sony5.html"
+      "iframeSrc": "https://jio-tv-all.pages.dev/Channel/Sony_Ten_5_HD"
     },
     {
       "id": "ten-cricket",
@@ -233,6 +233,24 @@
       "name": "Premier Sport",
       "type": "iframe",
       "iframeSrc": "https://sportlink18.pages.dev/Channel/premiersport.html"
+    },
+    {
+      "id": "star1-kannada",
+      "name": "Star Sports 1 Kannada",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_1_Kannada_BTS"
+    },
+    {
+      "id": "star1-tamil",
+      "name": "Star Sports 1 Tamil",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_1_Tamil_HD_BTS"
+    },
+    {
+      "id": "star1-telugu",
+      "name": "Star Sports 1 Telugu",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_1_Telugu_HD_BTS"
     }
   ]
 }
