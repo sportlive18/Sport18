@@ -52,7 +52,7 @@
       "id": "willow-cricbuzz-2",
       "name": "Willow Cricbuzz 2",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Willow Cricbuzz.html"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/4604f9d16228461c9eabfeee7dbe2d8e"
     },
     {
       "id": "sky-cricket",
@@ -61,16 +61,16 @@
       "iframeSrc": "https://allrounder-live7.pages.dev/channel/hub5"
     },
     {
-      "id": "hub",
-      "name": "Hub Sport",
+      "id": "Sky Sport",
+      "name": "Sky Sport",
       "type": "iframe",
-      "iframeSrc": "https://allrounder-live7.pages.dev/channel/hub5"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/294921-318514"
     },
     {
       "id": "ptv",
       "name": "PTV",
       "type": "iframe",
-      "iframeSrc": "https://allrounder-live7.pages.dev/channel/hub5"
+      "iframeSrc": "https://sportlink18.pages.dev/Channel/ptv"
     },
     {
       "id": "fox501",
@@ -82,7 +82,7 @@
       "id": "star1-tv-eng",
       "name": "Star Sports 1 TV (English)",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/Star1.html"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_HD1_BTS"
     },
     {
       "id": "Cbs Sports",
@@ -94,7 +94,7 @@
       "id": "star1-hindi-hd",
       "name": "Star Sports 1 Hindi HD",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/hindi.html"
+      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_HD1_Hindi_BTS"
     },
     {
       "id": "star2-hindi-hd",
