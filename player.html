@@ -171,10 +171,7 @@
   .share-btn:active { transform: translateY(0); }
   .share-note { text-align: center; font-size: 11px; color: rgba(255,255,255,.35); margin-top: 10px; letter-spacing: 1px; }
 
-  /* ══════════════════════════════════════════
-     FULLSCREEN OVERLAY — fully redesigned
-     Always fills 100vw × 100vh, iframe inside
-  ══════════════════════════════════════════ */
+  /* ── FULLSCREEN OVERLAY — plain fullscreen, no rotation ── */
   #fullscreen-overlay {
     display: none;
     position: fixed;
@@ -183,40 +180,17 @@
     background: #000;
     width: 100vw;
     height: 100vh;
-    /* safe area on notched phones */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-             env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   #fullscreen-overlay.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
   }
 
-  /* ── PORTRAIT mode: 16:9 box centred vertically ── */
-  #fullscreen-overlay.fs-portrait #fs-inner {
-    width: 100vw;
-    height: calc(100vw * 9 / 16);
-    max-height: 100vh;
-    position: relative;
-    transform: none;
-  }
-
-  /* ── LANDSCAPE mode: rotated so width fills the screen height ── */
-  #fullscreen-overlay.fs-landscape #fs-inner {
-    /* Visual size after rotation: vw becomes vh and vice versa */
-    width: 100vh;           /* will become height after 90° rotate */
-    height: 56.25vh;        /* 16:9 ratio of that width            */
-    position: relative;
-    transform: rotate(90deg);
-    transform-origin: center center;
-    /* Nudge so it stays truly centred after rotation */
-    margin: calc((100vh - 56.25vh) / 2) 0;
-  }
-
-  /* iframe fills its parent #fs-inner completely */
+  /* iframe fills entire overlay */
   #fs-inner {
-    flex-shrink: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
   #fs-inner iframe {
     position: absolute;
@@ -227,7 +201,7 @@
     display: block;
   }
 
-  /* close button — always top-right of the SCREEN */
+  /* close button — top-right */
   #fs-close {
     position: fixed; top: 14px; right: 14px; z-index: 10000;
     width: 42px; height: 42px;
@@ -239,20 +213,6 @@
     box-shadow: 0 4px 16px rgba(0,0,0,.6);
   }
   #fs-close svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; fill: none; }
-
-  /* rotate toggle — always bottom-right of the SCREEN */
-  #fs-rotate {
-    position: fixed; bottom: 24px; right: 20px; z-index: 10000;
-    width: 48px; height: 48px;
-    background: rgba(30,0,0,.7);
-    border: 1px solid rgba(232,0,13,.6);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0,0,0,.5);
-  }
-  #fs-rotate svg { width: 22px; height: 22px; fill: #e8000d; transition: transform 0.4s ease; }
-  #fs-rotate.rotated svg { transform: rotate(90deg); }
 
   .toast {
     position: fixed; bottom: 30px; left: 50%;
@@ -287,15 +247,10 @@
   <div id="fs-close">
     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </div>
-  <div id="fs-rotate">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.36 2.64L21 9V3h-6l2.16 2.16A7 7 0 0 0 5 12H3zm18 0a9 9 0 0 1-9 9 9 9 0 0 1-6.36-2.64L3 15v6h6l-2.16-2.16A7 7 0 0 0 19 12h2z"/>
-    </svg>
-  </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast">✓ Link copied to clipboard</div>
+<div class="toast" id="toast">&#10003; Link copied to clipboard</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -315,7 +270,7 @@
 
 <!-- SUB HEADER -->
 <div class="sub-header" id="subHeader">
-  <span class="sub-icon">📺</span>
+  <span class="sub-icon">&#128250;</span>
   <span class="sub-title" id="streamTitle">Live Stream</span>
   <div class="sub-divider"></div>
   <span class="sub-desc">Live Sports Streaming</span>
@@ -329,7 +284,7 @@
     <div class="video-header">
       <div class="video-title-group">
         <div class="video-title" id="videoTitleText">Live Stream</div>
-        <div class="video-subtitle">Live Sports · HD Stream</div>
+        <div class="video-subtitle">Live Sports &middot; HD Stream</div>
       </div>
       <div class="live-indicator">
         <div class="live-dot"></div>
@@ -347,16 +302,16 @@
     </div>
 
     <div class="controls">
-      <button class="btn btn-primary" id="fsBtn">⛶ &nbsp;Fullscreen</button>
-      <button class="btn btn-secondary" id="reloadBtn">↺ &nbsp;Reload</button>
+      <button class="btn btn-primary" id="fsBtn">&#x26F6; &nbsp;Fullscreen</button>
+      <button class="btn btn-secondary" id="reloadBtn">&#x21BA; &nbsp;Reload</button>
       <div class="spacer"></div>
-      <div class="stream-info">sportlink.live · hd sports</div>
+      <div class="stream-info">sportlink.live &middot; hd sports</div>
     </div>
   </div>
 
   <!-- ERROR -->
   <div class="error-box" id="errorBox">
-    ⚠ Invalid or unavailable stream ID. Please check the link.
+    &#9888; Invalid or unavailable stream ID. Please check the link.
   </div>
 
   <div class="divider">Community</div>
@@ -385,32 +340,29 @@
   <!-- SHARE CARD -->
   <div class="card">
     <div class="card-title">Share This Stream</div>
-    <button class="share-btn" id="shareBtn">↑ &nbsp;Copy Stream Link</button>
+    <button class="share-btn" id="shareBtn">&#x2191; &nbsp;Copy Stream Link</button>
     <div class="share-note">Best viewed in Chrome browser</div>
   </div>
 
 </div>
 
-<div class="footer">&copy; 2025 <span>SportLink</span> &nbsp;·&nbsp; All rights reserved</div>
+<div class="footer">&copy; 2025 <span>SportLink</span> &nbsp;&middot;&nbsp; All rights reserved</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const params          = new URLSearchParams(window.location.search);
-  const id              = params.get("id");
-  const playerContainer = document.getElementById("player-container");
-  const errorBox        = document.getElementById("errorBox");
-  const fsOverlay       = document.getElementById("fullscreen-overlay");
-  const fsInner         = document.getElementById("fs-inner");
-  const fsClose         = document.getElementById("fs-close");
-  const fsRotate        = document.getElementById("fs-rotate");
-  const fsBtn           = document.getElementById("fsBtn");
-  let currentSrc        = "";
-  let fsMode            = "portrait"; // "portrait" | "landscape"
+  var params          = new URLSearchParams(window.location.search);
+  var id              = params.get("id");
+  var playerContainer = document.getElementById("player-container");
+  var errorBox        = document.getElementById("errorBox");
+  var fsOverlay       = document.getElementById("fullscreen-overlay");
+  var fsInner         = document.getElementById("fs-inner");
+  var fsClose         = document.getElementById("fs-close");
+  var fsBtn           = document.getElementById("fsBtn");
+  var currentSrc      = "";
 
-  /* ─── helpers ─── */
   function makeIframe(src) {
-    const f = document.createElement("iframe");
+    var f = document.createElement("iframe");
     f.src = src;
     f.setAttribute("allow", "encrypted-media; autoplay");
     f.setAttribute("allowfullscreen", "");
@@ -432,17 +384,17 @@ document.addEventListener("DOMContentLoaded", function () {
     errorBox.style.display = "block";
   } else {
     fetch("https://sportlink18.pages.dev/id.json")
-      .then(r => r.json())
-      .then(data => {
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
         if (!data.iframes || !Array.isArray(data.iframes)) {
           errorBox.style.display = "block"; return;
         }
-        const match = data.iframes.find(item => item.id === id);
+        var match = data.iframes.find(function(item) { return item.id === id; });
         if (match && match.iframeSrc) {
           currentSrc = match.iframeSrc;
           loadMain();
           if (match.name) {
-            document.getElementById("streamTitle").textContent   = match.name;
+            document.getElementById("streamTitle").textContent    = match.name;
             document.getElementById("videoTitleText").textContent = match.name;
             document.title = "SportLink | " + match.name;
           }
@@ -450,119 +402,59 @@ document.addEventListener("DOMContentLoaded", function () {
           errorBox.style.display = "block";
         }
       })
-      .catch(() => { errorBox.style.display = "block"; });
+      .catch(function() { errorBox.style.display = "block"; });
   }
 
   /* ─── reload ─── */
   document.getElementById("reloadBtn").onclick = loadMain;
 
   /* ══════════════════════════════════════════
-     FULLSCREEN LOGIC
+     FULLSCREEN — no rotation, no flip
   ══════════════════════════════════════════ */
-
-  function applyFsMode(mode) {
-    fsMode = mode;
-    fsOverlay.classList.remove("fs-portrait", "fs-landscape");
-    fsOverlay.classList.add("fs-" + mode);
-    if (mode === "landscape") {
-      fsRotate.classList.add("rotated");
-    } else {
-      fsRotate.classList.remove("rotated");
-    }
-  }
 
   function openFullscreen() {
     if (!currentSrc) return;
-
-    // stop main player so two streams don't play simultaneously
     clearMain();
-
-    // inject iframe into overlay
     fsInner.innerHTML = "";
     fsInner.appendChild(makeIframe(currentSrc));
-
-    // show overlay
     fsOverlay.classList.add("active");
-
-    // auto-detect: if phone is portrait, use landscape rotation for sport content
-    const isPortraitPhone = window.innerHeight > window.innerWidth;
-    applyFsMode(isPortraitPhone ? "landscape" : "portrait");
-
-    // lock body scroll
     document.body.style.overflow = "hidden";
-
-    // request native fullscreen (best-effort)
-    const el = fsOverlay;
-    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
-    if (req) req.call(el).catch(() => {});
-
-    // try Screen Orientation API to lock landscape
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock("landscape").catch(() => {});
-    }
+    var el  = fsOverlay;
+    var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
+    if (req) req.call(el).catch(function() {});
   }
 
   function closeFullscreen() {
-    // unlock orientation
-    if (screen.orientation && screen.orientation.unlock) {
-      screen.orientation.unlock();
-    }
-
-    // exit native fullscreen
-    const exitFn = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen;
+    var exitFn = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen;
     if (exitFn && (document.fullscreenElement || document.webkitFullscreenElement)) {
-      exitFn.call(document).catch(() => {});
+      exitFn.call(document).catch(function() {});
     }
-
-    // tear down overlay
     fsInner.innerHTML = "";
-    fsOverlay.classList.remove("active", "fs-portrait", "fs-landscape");
+    fsOverlay.classList.remove("active");
     document.body.style.overflow = "";
-
-    // restore main player
     loadMain();
   }
 
-  /* ─── button events ─── */
   fsBtn.addEventListener("click", openFullscreen);
   fsClose.addEventListener("click", closeFullscreen);
 
-  fsRotate.addEventListener("click", function () {
-    applyFsMode(fsMode === "portrait" ? "landscape" : "portrait");
-  });
-
-  /* ─── native fullscreen exit (Escape / browser back) ─── */
   function onFsChange() {
-    const active = document.fullscreenElement || document.webkitFullscreenElement;
-    if (!active && fsOverlay.classList.contains("active")) {
-      // user pressed Escape or browser chrome back — close gracefully
-      closeFullscreen();
-    }
+    var active = document.fullscreenElement || document.webkitFullscreenElement;
+    if (!active && fsOverlay.classList.contains("active")) closeFullscreen();
   }
   document.addEventListener("fullscreenchange",       onFsChange);
   document.addEventListener("webkitfullscreenchange", onFsChange);
 
-  /* ─── keyboard Escape ─── */
-  document.addEventListener("keydown", function (e) {
+  document.addEventListener("keydown", function(e) {
     if (e.key === "Escape" && fsOverlay.classList.contains("active")) closeFullscreen();
   });
 
-  /* ─── device orientation change while overlay is open ─── */
-  window.addEventListener("orientationchange", function () {
-    if (!fsOverlay.classList.contains("active")) return;
-    // Give browser a moment to update dimensions
-    setTimeout(function () {
-      const nowLandscape = window.innerWidth > window.innerHeight;
-      applyFsMode(nowLandscape ? "portrait" : "landscape");
-    }, 150);
-  });
-
   /* ─── share / copy ─── */
-  const toast = document.getElementById("toast");
-  document.getElementById("shareBtn").onclick = function () {
-    navigator.clipboard.writeText(window.location.href).then(() => {
+  var toast = document.getElementById("toast");
+  document.getElementById("shareBtn").onclick = function() {
+    navigator.clipboard.writeText(window.location.href).then(function() {
       toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
+      setTimeout(function() { toast.classList.remove("show"); }, 2500);
     });
   };
 
