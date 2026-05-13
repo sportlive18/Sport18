@@ -238,7 +238,7 @@
       "id": "star1-kannada",
       "name": "Star Sports 1 Kannada",
       "type": "iframe",
-      "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_1_Kannada_BTS"
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_1_Kannada"
     },
     {
       "id": "star1-tamil",
@@ -251,6 +251,24 @@
       "name": "Star Sports 1 Telugu",
       "type": "iframe",
       "iframeSrc": "https://sayan-jiotv-10.pages.dev/Channel/Star_Sports_1_Telugu_HD_BTS"
+    },
+    {
+      "id": "star2-tamil",
+      "name": "Star Sports 2 Tamil",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_2_Tamil_HD"
+    },
+    {
+      "id": "star2-telugu",
+      "name": "Star Sports 2 Telugu",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_2_Telugu_HD"
+    },
+    {
+      "id": "star2-kannada",
+      "name": "Star Sports 2 Kannada",
+      "type": "iframe",
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_2_Kannada"
     }
   ]
 }
