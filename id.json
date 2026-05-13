@@ -202,13 +202,13 @@
       "id": "star-select-1",
       "name": "Star Sport Select 1",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/StarSportSelect1.html"
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_Select_1_HD"
     },
     {
       "id": "star-select-2",
       "name": "Star Sport Select 2",
       "type": "iframe",
-      "iframeSrc": "https://sportlink18.pages.dev/Channel/StarSportSelect2.html"
+      "iframeSrc": "https://sayan-jiotv.pages.dev/Channel/Star_Sports_Select_2_HD"
     },
     {
       "id": "fancode",
