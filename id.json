@@ -10,7 +10,7 @@
       "id": "hotstar",
       "name": "Disney+ Hotstar",
       "type": "iframe",
-      "iframeSrc": "https://allrounder-live2.pages.dev/channel/ptv"
+      "iframeSrc": "https://allrounder-live9.pages.dev/channel/ptv"
     },
     {
       "id": "star1-english",
@@ -34,7 +34,7 @@
       "id": "kayosport",
       "name": "Kayo Sport HD",
       "type": "iframe",
-      "iframeSrc": "https://allrounder-live2.pages.dev/channel/ptv"
+      "iframeSrc": "https://allrounder-live9.pages.dev/channel/ptv"
     },
     {
       "id": "criclife",
