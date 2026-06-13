@@ -137,7 +137,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const socialBadges = document.getElementById('social-badges');
   const picker = document.getElementById('picker');
 
-  fetch('https://allrounderid2.pages.dev/id.json')
+  fetch('https://raw.githubusercontent.com/dilzyking/Allrounder/refs/heads/main/id.json ')
     .then(res => res.json())
     .then(data => {
       if (id) {
